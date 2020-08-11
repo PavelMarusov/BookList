@@ -6,35 +6,57 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.App;
+import com.example.booklist.data.GhibliService;
+import com.example.booklist.intefaces.IonItemClick;
+import com.example.booklist.models.BooksModel;
+import com.example.booklist.models.Films;
+import com.example.booklist.presentation.FilmListAdapter;
+import com.example.booklist.presentation.InfoActivity;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements IonItemClick, GhibliService.GhibliCallback {
     private RecyclerView recyclerView;
-    private  BookListAdapter adapter;
-    private ArrayList <String> list;
+    private FilmListAdapter adapter;
+    private  List<Films> filmsList;
     public static final String KYE = "key";
+    public static final String ID = "key";
+   ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        App.ghibliService.getFilms(this);
         recyclerView = findViewById(R.id.recycler);
-        list = new ArrayList<>();
-        list.add("Анна Каренина");
-        adapter = new BookListAdapter(list);
+
+    }
+
+    @Override
+    public void OnClick(int position) {
+        Films film = filmsList.get(position);
+        Log.d("pop",film.getTitle());
+                Intent intent =  new Intent(MainActivity.this, InfoActivity.class);
+                intent.putExtra(ID,film);
+                startActivity(intent);
+    }
+
+    @Override
+    public void onSuccess(List<Films> films) {
+        filmsList = films;
+        adapter = new FilmListAdapter(filmsList,this);
         recyclerView.addItemDecoration
                 (new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
-        adapter.setListner(new IonItemClick() {
-            @Override
-            public void OnClick(int position) {
-                Intent intent =  new Intent(MainActivity.this,InfoActivity.class);
-                intent.putExtra(KYE,position);
-                startActivity(intent);
-            }
-        });
 
+    }
 
+    @Override
+    public void onFailure(Exception ex) {
+        Toast.makeText(this, "Ошибка :"+ ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }

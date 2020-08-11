@@ -1,4 +1,4 @@
-package com.example.booklist;
+package com.example.booklist.presentation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,18 +8,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.booklist.R;
+import com.example.booklist.intefaces.IonItemClick;
+import com.example.booklist.models.Films;
 
-public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ListBookHolder> {
-    private ArrayList<String> list;
-    private IonItemClick listner;
+import java.util.List;
 
-    public BookListAdapter(ArrayList<String> list) {
+public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ListBookHolder> {
+    private List<Films> list;
+    private IonItemClick ionItemClick;
+
+    public FilmListAdapter(List<Films> list,IonItemClick ionItemClick) {
         this.list = list;
-        list.add("Война и Мир");
-        list.add("1984");
-        list.add("Записки о Шерлоке Холмсе");
-
+        this.ionItemClick = ionItemClick;
     }
 
     @NonNull
@@ -40,9 +41,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ListBo
         return list.size();
     }
 
-    public void setListner (IonItemClick ionItemClick){
-        this.listner = ionItemClick;
-    }
+
 
     public class ListBookHolder extends RecyclerView.ViewHolder {
         private TextView booksName;
@@ -53,13 +52,14 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ListBo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listner.OnClick(getAdapterPosition());
+                    ionItemClick.OnClick(getAdapterPosition());
                 }
             });
+
         }
 
-        public void onBind(String text) {
-            booksName.setText(text);
+        public void onBind(Films films) {
+            booksName.setText(films.getTitle());
         }
     }
 }
