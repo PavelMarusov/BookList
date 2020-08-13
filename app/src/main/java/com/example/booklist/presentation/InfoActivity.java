@@ -18,16 +18,20 @@ import java.util.List;
 
 public class InfoActivity extends AppCompatActivity {
     private TextView textInfo;
+    private TextView textName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         textInfo = findViewById(R.id.book_info_textview);
+        textName = findViewById(R.id.book);
         Intent intent = getIntent();
        Films films = (Films) intent.getSerializableExtra(MainActivity.ID);
        Log.d("pop",films.getDescription());
         textInfo.setText(films.getDescription());
+        textName.setText(films.getTitle());
+
 
     }
 }

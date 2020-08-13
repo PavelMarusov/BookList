@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity implements IonItemClick, Ghi
     public void onSuccess(List<Films> films) {
         filmsList = films;
         adapter = new FilmListAdapter(filmsList,this);
-        recyclerView.addItemDecoration
-                (new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
 
     }

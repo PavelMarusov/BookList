@@ -1,5 +1,6 @@
 package com.example.booklist.presentation;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ListBo
     @Override
     public void onBindViewHolder(@NonNull ListBookHolder holder, int position) {
         holder.onBind(list.get(position));
+
     }
 
     @Override
