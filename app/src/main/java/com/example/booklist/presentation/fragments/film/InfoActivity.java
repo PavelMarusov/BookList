@@ -1,4 +1,4 @@
-package com.example.booklist.presentation;
+package com.example.booklist.presentation.fragments.film;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,14 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.booklist.MainActivity;
 import com.example.booklist.R;
-import com.example.booklist.data.TestRepozitory;
-import com.example.booklist.models.BooksModel;
 import com.example.booklist.models.Films;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.booklist.utils.Config;
 
 public class InfoActivity extends AppCompatActivity {
     private TextView textInfo;
@@ -27,7 +22,7 @@ public class InfoActivity extends AppCompatActivity {
         textInfo = findViewById(R.id.book_info_textview);
         textName = findViewById(R.id.book);
         Intent intent = getIntent();
-       Films films = (Films) intent.getSerializableExtra(MainActivity.ID);
+       Films films = (Films) intent.getSerializableExtra(Config.POSITION);
        Log.d("pop",films.getDescription());
         textInfo.setText(films.getDescription());
         textName.setText(films.getTitle());

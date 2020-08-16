@@ -8,7 +8,7 @@
     android:background="@drawable/images"
     android:padding="16dp"
     android:gravity="center"
-    tools:context=".presentation.InfoActivity">
+    tools:context=".presentation.fragments.film.InfoActivity">
 
     <TextView
         android:id="@+id/book"

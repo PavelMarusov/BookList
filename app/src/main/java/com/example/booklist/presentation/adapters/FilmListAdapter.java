@@ -1,6 +1,5 @@
-package com.example.booklist.presentation;
+package com.example.booklist.presentation.adapters;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.booklist.R;
 import com.example.booklist.intefaces.IonItemClick;
 import com.example.booklist.models.Films;
+import com.example.booklist.presentation.fragments.film.FilmsFragment;
 
 import java.util.List;
 
@@ -23,6 +23,7 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ListBo
         this.list = list;
         this.ionItemClick = ionItemClick;
     }
+
 
     @NonNull
     @Override

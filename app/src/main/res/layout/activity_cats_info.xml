@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient"
+    tools:context=".presentation.fragments.cats.CatsInfoActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cats_recycler"
+        android:layout_width="400dp"
+        android:layout_height="354dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cats_info_tv"
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints"
+        tools:listitem="@layout/list_cats"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    <TextView
+        android:id="@+id/cats_info_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_name"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        />
+</LinearLayout>

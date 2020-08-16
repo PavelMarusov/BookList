@@ -42,22 +42,6 @@ public class GhibliService {
         });
     }
 
-    public void getFilmInfo(String id, GhibliCallback callback){
-        Call<List<Films>> call =service.getFilmByID(id);
-        call.enqueue(new Callback<List<Films>>() {
-            @Override
-            public void onResponse(Call<List<Films>> call, Response<List<Films>> response) {
-                if (response.isSuccessful()&&response.body()!=null)
-                callback.onSuccess(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<List<Films>> call, Throwable t) {
-
-            }
-        });
-    }
-
     public interface  GhibliCallback{
         void onSuccess(List<Films> films);
         void onFailure(Exception ex);

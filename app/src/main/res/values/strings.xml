@@ -4,4 +4,9 @@
     <string name="book_info">Book Info</string>
     <string name="book_name">Book name</string>
     <string name="book_info1">Book info</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello cats fragment</string>
+    <string name="facts_cats">Click to learn more about cats</string>
+    <string name="news_fragment">News Fragment</string>
 </resources>
