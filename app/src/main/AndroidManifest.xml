@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.fragments.cats.CatsInfoActivity"></activity>
-        <activity android:name=".presentation.fragments.film.InfoActivity"></activity>
+        <activity android:name=".presentation.fragments.film.FavoriteActivity"></activity>
+        <activity android:name=".presentation.fragments.cats.CatsInfoActivity" />
+        <activity android:name=".presentation.fragments.film.InfoActivity" />
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,4 +9,6 @@
     <string name="hello_blank_fragment">Hello cats fragment</string>
     <string name="facts_cats">Click to learn more about cats</string>
     <string name="news_fragment">News Fragment</string>
+    <string name="like">Like</string>
+    <string name="show_favorites">Show favorites</string>
 </resources>

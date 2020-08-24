@@ -1,4 +1,4 @@
-package com.example.booklist.data;
+package com.example.booklist.data.network;
 
 import com.example.booklist.models.Films;
 import com.example.booklist.models.cats.Cats;

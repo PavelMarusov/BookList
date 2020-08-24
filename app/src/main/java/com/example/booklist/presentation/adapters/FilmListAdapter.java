@@ -58,7 +58,6 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ListBo
                     ionItemClick.OnClick(getAdapterPosition());
                 }
             });
-
         }
 
         public void onBind(Films films) {

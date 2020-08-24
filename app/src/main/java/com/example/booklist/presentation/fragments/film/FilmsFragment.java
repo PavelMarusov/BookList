@@ -10,11 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.App;
 import com.example.booklist.R;
-import com.example.booklist.data.GhibliService;
+import com.example.booklist.data.network.GhibliService;
 import com.example.booklist.intefaces.IonItemClick;
 import com.example.booklist.models.Films;
 import com.example.booklist.presentation.adapters.FilmListAdapter;
@@ -25,10 +26,11 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FilmsFragment extends Fragment implements GhibliService.GhibliCallback,IonItemClick {
+public class FilmsFragment extends Fragment implements GhibliService.GhibliCallback,IonItemClick, View.OnClickListener {
     private RecyclerView recyclerView;
     private FilmListAdapter adapter;
     private List<Films> filmsList;
+    private Button favBtn;
 
     public FilmsFragment() {
         // Required empty public constructor
@@ -41,6 +43,8 @@ public class FilmsFragment extends Fragment implements GhibliService.GhibliCallb
         View view = inflater.inflate(R.layout.fragment_films, container, false);
         App.ghibliService.getFilms(this);
         recyclerView = view.findViewById(R.id.recycler);
+        favBtn = view.findViewById(R.id.film_favorite_btn);
+        favBtn.setOnClickListener(this);
 
         return view;
     }
@@ -63,6 +67,12 @@ public class FilmsFragment extends Fragment implements GhibliService.GhibliCallb
         Log.d("pop",film.getTitle());
         Intent intent =  new Intent(getActivity(), InfoActivity.class);
         intent.putExtra(Config.POSITION,film);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(getActivity(),FavoriteActivity.class);
         startActivity(intent);
     }
 }

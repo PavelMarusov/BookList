@@ -1,4 +1,4 @@
-package com.example.booklist.data;
+package com.example.booklist.data.network;
 
 import android.util.Log;
 

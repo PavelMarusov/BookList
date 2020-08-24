@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.App;
 import com.example.booklist.R;
-import com.example.booklist.data.CatsFactService;
+import com.example.booklist.data.network.CatsFactService;
 import com.example.booklist.models.cats.Cats;
 import com.example.booklist.utils.Config;
 

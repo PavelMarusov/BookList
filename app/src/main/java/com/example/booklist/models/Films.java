@@ -1,16 +1,20 @@
 package com.example.booklist.models;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.List;
-
+@Entity
 public class Films implements Serializable {
     @SerializedName("id")
     @Expose
+    @NonNull
+    @PrimaryKey
     private String id;
     @SerializedName("title")
     @Expose
@@ -30,18 +34,18 @@ public class Films implements Serializable {
     @SerializedName("rt_score")
     @Expose
     private String rtScore;
-    @SerializedName("people")
-    @Expose
-    private List<String> people = null;
-    @SerializedName("species")
-    @Expose
-    private List<String> species = null;
-    @SerializedName("locations")
-    @Expose
-    private List<String> locations = null;
-    @SerializedName("vehicles")
-    @Expose
-    private List<String> vehicles = null;
+//    @SerializedName("people")
+//    @Expose
+//    private List<String> people;
+//    @SerializedName("species")
+//    @Expose
+//    private List<String> species ;
+//    @SerializedName("locations")
+//    @Expose
+//    private List<String> locations ;
+//    @SerializedName("vehicles")
+//    @Expose
+//    private List<String> vehicles ;
     @SerializedName("url")
     @Expose
     private String url;
@@ -102,37 +106,37 @@ public class Films implements Serializable {
         this.rtScore = rtScore;
     }
 
-    public List<String> getPeople() {
-        return people;
-    }
-
-    public void setPeople(List<String> people) {
-        this.people = people;
-    }
-
-    public List<String> getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(List<String> species) {
-        this.species = species;
-    }
-
-    public List<String> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(List<String> locations) {
-        this.locations = locations;
-    }
-
-    public List<String> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(List<String> vehicles) {
-        this.vehicles = vehicles;
-    }
+//    public List<String> getPeople() {
+//        return people;
+//    }
+//
+//    public void setPeople(List<String> people) {
+//        this.people = people;
+//    }
+//
+//    public List<String> getSpecies() {
+//        return species;
+//    }
+//
+//    public void setSpecies(List<String> species) {
+//        this.species = species;
+//    }
+//
+//    public List<String> getLocations() {
+//        return locations;
+//    }
+//
+//    public void setLocations(List<String> locations) {
+//        this.locations = locations;
+//    }
+//
+//    public List<String> getVehicles() {
+//        return vehicles;
+//    }
+//
+//    public void setVehicles(List<String> vehicles) {
+//        this.vehicles = vehicles;
+//    }
 
     public String getUrl() {
         return url;
@@ -148,15 +152,6 @@ public class Films implements Serializable {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", director='" + director + '\'' +
-                ", producer='" + producer + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", rtScore='" + rtScore + '\'' +
-                ", people=" + people +
-                ", species=" + species +
-                ", locations=" + locations +
-                ", vehicles=" + vehicles +
-                ", url='" + url + '\'' +
                 '}';
     }
 }
